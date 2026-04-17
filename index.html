@@ -114,6 +114,64 @@
 </div>
 
 
+<!-- ── CONTACT PAGE ── -->
+<div id="page-contact" class="page">
+  <div class="contact-wrap">
+    <h2>Contact Nous</h2>
+    <div class="contact-form">
+      <div class="form-group">
+        <label>Nom Complet</label>
+        <input type="text" placeholder="Nom Complet">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="Votre Nom@gmail.com">
+      </div>
+      <div class="form-group">
+        <label>Votre Message</label>
+        <textarea placeholder="votre Message"></textarea>
+      </div>
+      <button class="submit-btn" >Envoyer le message</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL ── -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">Ajouter un Produit</h3>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Nom Du Produit *</label>
+        <input type="text" id="mName" placeholder="ex: Huile d'Olive Vierge">
+      </div>
+      <div class="form-group">
+        <label>Prix (DH) *</label>
+        <input type="number" id="mPrice" placeholder="ex: 80">
+      </div>
+      <div class="form-group">
+        <label>URL de l'image (optionnel)</label>
+        <input type="text" id="mImg" placeholder="https://...">
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <textarea id="mDesc" placeholder="Description du produit..."></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-confirm" id="modalConfirm" >Envoyer le message</button>
+      <button class="btn-cancel" >Annuler</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- FOOTER -->
+<footer>
+  Fquih Ben Saleh | Contact : +212 6 00 00 00 00 | © 2026 DevSphere
+</footer>
 
 </body>
 </html>
