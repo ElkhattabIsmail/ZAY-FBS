@@ -765,6 +765,101 @@ footer {
 
 
 
+/* ── CONTACT PAGE ── */
+.contact-wrap {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.contact-wrap h2 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 1.8rem;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.contact-wrap h2::before,
+.contact-wrap h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--cream2);
+}
+
+.contact-form {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.form-group { margin-bottom: 1.1rem; }
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.modal-body input,
+.modal-body textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--cream2);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-family: 'Lato', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.modal-body input:focus,
+.modal-body textarea:focus {
+  border-color: var(--green);
+}
+
+.form-group textarea,
+.modal-body textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submit-btn:hover { background: var(--green-light); }
+
+
+
+
+
+
+
+
 
 
 
