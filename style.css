@@ -859,6 +859,88 @@ footer {
 
 
 
+/* ── MODAL ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+
+.modal h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+
+.modal-body .form-group { margin-bottom: 0.9rem; }
+
+.modal-body label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 1.25rem;
+}
+
+.modal-footer button { flex: 1; padding: 10px; border-radius: 8px; font-weight: 700; font-size: 0.88rem; cursor: pointer; border: none; }
+
+.btn-confirm {
+  background: var(--green);
+  color: var(--white);
+  transition: background 0.2s;
+}
+
+.btn-confirm:hover { background: var(--green-light); }
+
+.btn-cancel {
+  background: var(--cream2);
+  color: var(--dark);
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  z-index: 300;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+
+.toast.show { opacity: 1; transform: translateY(0); }
+
+
+
 
 
 
