@@ -131,8 +131,72 @@ function showToast(msg) {
 }
 
 
+let cart = [];
+let editingId = null;
+let nextId = 4;
 
 
+// Crud Operations.
+function saveProduct() {
+  const name  = document.getElementById('mName').value.trim();
+  const price = parseFloat(document.getElementById('mPrice').value);
+  const img   = document.getElementById('mImg').value.trim();
+  const desc  = document.getElementById('mDesc').value.trim();
+
+  if (!name || isNaN(price)) { showToast('Nom et prix sont obligatoires !'); return; }
+
+  if (editingId) {
+    const idx = products.findIndex(p => p.id === editingId);
+    products[idx] = { id: editingId, name, price, img, desc };
+    showToast('Produit modifié ✓');
+  } else {
+    products.push({ id: nextId++, name, price, img, desc });
+    showToast('Produit ajouté ✓');
+  }
+  closeModal();
+  renderProducts();
+}
+
+function deleteProduct(id) {
+  products = products.filter(p => p.id !== id);
+  cart = cart.filter(c => c.id !== id);
+  updateCartBadge();
+  renderProducts();
+  showToast('Produit supprimé');
+}
+
+// ── CART ──
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...p, qty: 1 });
+  }
+  updateCartBadge();
+  showToast(`"${p.name}" ajouté au panier ✓`);
+}
+
+function updateCartBadge() {
+  const total = cart.reduce((s, c) => s + c.qty, 0);
+  document.getElementById('cartBadge').textContent = total;
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCartBadge();
+  renderCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(c => c.id !== id);
+  updateCartBadge();
+  renderCart();
+}
 
 
 
