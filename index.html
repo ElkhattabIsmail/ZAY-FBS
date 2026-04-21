@@ -102,7 +102,7 @@
 <div id="page-produits" class="page">
   <div class="page-header">
     <h2>Nos Produits</h2>
-    <button class="add-btn" >+ Ajouter un Produit</button>
+    <button class="add-btn" onclick="openModal()">+ Ajouter un Produit</button>
   </div>
   <div class="products-grid" id="productsGrid"></div>
 </div>
@@ -162,7 +162,7 @@
     </div>
     <div class="modal-footer">
       <button class="btn-confirm" id="modalConfirm" >Envoyer le message</button>
-      <button class="btn-cancel" >Annuler</button>
+      <button class="btn-cancel" onclick="closeModal()" >Annuler</button>
     </div>
   </div>
 </div>

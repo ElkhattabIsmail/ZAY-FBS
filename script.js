@@ -89,6 +89,37 @@ function toggleMenu() {
 
 
 
+// Modal
+
+function openModal(id = null) {
+  editingId = id;
+  const modal = document.getElementById('modalOverlay');
+  const title = document.getElementById('modalTitle');
+  const btn   = document.getElementById('modalConfirm');
+
+  if (id) {
+    const p = products.find(x => x.id === id);
+    document.getElementById('mName').value  = p.name;
+    document.getElementById('mPrice').value = p.price;
+    document.getElementById('mImg').value   = p.img || '';
+    document.getElementById('mDesc').value  = p.desc;
+    title.textContent = 'Modifier le Produit';
+    btn.textContent   = 'Enregistrer';
+  } else {
+    document.getElementById('mName').value  = '';
+    document.getElementById('mPrice').value = '';
+    document.getElementById('mImg').value   = '';
+    document.getElementById('mDesc').value  = '';
+    title.textContent = 'Ajouter un Produit';
+    btn.textContent   = 'Envoyer le message';
+  }
+  modal.classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  editingId = null;
+}
 
 
 
