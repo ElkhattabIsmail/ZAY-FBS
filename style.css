@@ -13,12 +13,28 @@
 
 * { margin:0; padding:0; box-sizing:border-box; }
 
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
 body {
   font-family: 'Lato', sans-serif;
   background: var(--cream);
   color: var(--text);
   min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
+
+/* Let the main element occupy the entire page space. */
+main {
+  flex: 1;
+}
+
 
 /* ── NAVBAR ── */
 nav {
@@ -274,20 +290,6 @@ nav {
   color: var(--text-light);
   line-height: 1.5;
 }
-
-
-/* ── FOOTER ── */
-footer {
-  background: var(--dark);
-  color: rgba(255,255,255,0.7);
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.8rem;
-}
-
-
-
-
 
 /* ── PRODUITS PAGE ── */
 .page-header {
@@ -941,10 +943,11 @@ footer {
 
 
 
-
-
-
-
-
-
-
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
