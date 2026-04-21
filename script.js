@@ -199,6 +199,11 @@ function removeFromCart(id) {
 }
 
 
+//  CLOSE MODAL ON OVERLAY CLICK 
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
 
 
 renderProducts();
