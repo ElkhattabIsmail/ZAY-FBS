@@ -25,7 +25,45 @@ function showPage(name) {
 }
 
 
+const DEFAULT_IMG = "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80";
+
+// ── PRODUCTS List ──
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  if (products.length === 0) {
+    grid.innerHTML = '<p style="padding:2rem;color:var(--text-light);">Aucun produit. Ajoutez-en un !</p>';
+    return;
+  }
+  grid.innerHTML = products.map(p => `
+    <div class="product-card">
+      <img src="${p.img || DEFAULT_IMG}" alt="${p.name}" onerror="this.src='${DEFAULT_IMG}'">
+      <div class="product-card-body">
+        <h3>${p.name}</h3>
+        <div class="product-price">${p.price} DH</div>
+        <p class="product-desc">${p.desc}</p>
+        <div class="product-actions">
+          <button class="btn-cart" onclick="addToCart(${p.id})">❤ Ajouter au Panier</button>
+          <button class="btn-edit" onclick="openModal(${p.id})">Modifier</button>
+          <button class="btn-del" onclick="deleteProduct(${p.id})">✕</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+renderProducts();
