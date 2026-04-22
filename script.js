@@ -14,14 +14,15 @@ let products = [
 
 // ── NAVIGATION ──
 function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); // disactivate all pages
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));  // disactivate all links.
+
+  document.getElementById('page-' + name).classList.add('active'); // activate page turn it to block.
+
   const navEl = document.getElementById('nav-' + name);
-  if (navEl) navEl.classList.add('active');
-  document.getElementById('navLinks').classList.remove('open');
+  if (navEl) navEl.classList.add('active');  // activate the nav_item that Clicked.
+
   if (name === 'produits') renderProducts();
-  if (name === 'panier') renderCart();
 }
 
 
@@ -53,10 +54,12 @@ function renderProducts() {
 
 function renderCart() {
   const el = document.getElementById('cartItems');
+
   if (cart.length === 0) {
     el.innerHTML = '<div class="empty-cart">🛒<br><br>Votre panier est vide.</div>';
     return;
   }
+
   const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
   el.innerHTML = cart.map(c => `
     <div class="cart-item">
@@ -77,9 +80,42 @@ function renderCart() {
       <span>Total</span>
       <span>${total} DH</span>
     </div>
+    <div class="confirmaition-Card">
+        <button class = "confirm-btn">Confirme la command</button>
+        <button  class = "Anuller-btn" >Anuller</button>
+    </div>
   `;
 }
 
+
+
+
+function toggleCart() {
+  document.getElementById('cartSidebar').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+  if (document.getElementById('cartSidebar').classList.contains('open')) {
+    renderCart();
+  }
+}
+
+function closeCart(e) {
+  // only close when clicking the overlay itself
+  toggleCart();
+}
+
+// UPDATE addToCart to re-render cart if sidebar is open:
+function addToCart(id) {
+  const p = products.find(x => x.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ ...p, qty: 1 });
+  }
+  updateCartBadge();
+  showToast(`"${p.name}" ajouté au panier ✓`);
+  if (document.getElementById('cartSidebar').classList.contains('open')) renderCart();
+}
 
 
 function toggleMenu() {

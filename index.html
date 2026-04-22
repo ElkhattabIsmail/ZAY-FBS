@@ -17,12 +17,11 @@
 <nav>
   <div class="nav-logo"><span>🌿</span> ZayFBS</div>
     <ul class="nav-links" id="navLinks">
-    <li><a onclick="showPage('home')" class="active" id="nav-home">Accueil</a></li>
-    <li><a onclick="showPage('produits')" id="nav-produits">Produits</a></li>
-    <li><a onclick="showPage('panier')" id="nav-panier">Paniers</a></li>
-    <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
-  </ul>
-  <button class="cart-btn" onclick="showPage('panier')">
+      <li><a onclick="showPage('home')" class="active" id="nav-home">Accueil</a></li>
+      <li><a onclick="showPage('produits')" id="nav-produits">Produits</a></li>
+      <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+  <button class="cart-btn" onclick="toggleCart()">
     🛒 panier <span id="cartBadge">0</span>
   </button>
   <button class="hamburger" id="hamburger"  onclick="toggleMenu()">
@@ -112,13 +111,6 @@
   <div class="products-grid" id="productsGrid"></div>
 </div>
 
-<!-- ── PANIER PAGE ── -->
-<div id="page-panier" class="page">
-  <div class="panier-content">
-    <h2>Mon Panier</h2>
-    <div id="cartItems"></div>
-  </div>
-</div>
 
 
 <!-- ── CONTACT PAGE ── -->
@@ -172,8 +164,24 @@
   </div>
 </div>
 
+
+
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
+
+
+
+  <!-- Panier SideBar -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-sidebar-header">
+        <h2>Mon Panier</h2>
+        <button class="cart-close-btn" onclick="toggleCart()">✕</button>
+      </div>
+      <div class="cart-sidebar-body" id="cartItems"></div>
+    </div>
+
+
   </main>
 <!-- FOOTER -->
 <footer>
