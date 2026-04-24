@@ -56,7 +56,15 @@ function renderCart() {
   const el = document.getElementById('cartItems');
 
   if (cart.length === 0) {
-    el.innerHTML = '<div class="empty-cart">🛒<br><br>Votre panier est vide.</div>';
+    el.innerHTML = '<div class="empty-cart">🛒<br><br>Votre panier est vide.</div> ' + 
+     ` <div class="cart-total">
+      <span>Total</span>
+      <span> 0 DH</span>
+    </div>
+    <div class="confirmaition-Card">
+        <button class = "confirm-btn" onclick="ConfirmeLaCommand()">Confirme la command</button>
+        <button  class = "Anuller-btn" onclick="AnnulerLaCommand()" >Anuller</button>
+    </div> `
     return;
   }
 
@@ -76,17 +84,31 @@ function renderCart() {
       <button class="btn-remove-cart" onclick="removeFromCart(${c.id})">✕</button>
     </div>
   `).join('') + `
-    <div class="cart-total">
+   <div class="cart-total">
       <span>Total</span>
       <span>${total} DH</span>
     </div>
     <div class="confirmaition-Card">
-        <button class = "confirm-btn">Confirme la command</button>
-        <button  class = "Anuller-btn" >Anuller</button>
+        <button class = "confirm-btn" onclick="Faire_Annuler_Command('La Command est Confirme ✅')">  Confirme la command</button>
+        <button  class = "Anuller-btn" onclick="Faire_Annuler_Command('La Command est Annuler ❌')" > Anuller</button>
     </div>
   `;
 }
 
+
+function Faire_Annuler_Command(msg){
+    if (cart.length === 0)
+    {
+      showToast("La Command est vide!");
+      return;
+    }
+
+    cart.length = 0;
+    renderCart();
+    
+    updateCartBadge();
+    showToast(msg);
+}
 
 
 
@@ -147,7 +169,7 @@ function openModal(id = null) {
     document.getElementById('mImg').value   = '';
     document.getElementById('mDesc').value  = '';
     title.textContent = 'Ajouter un Produit';
-    btn.textContent   = 'Envoyer le message';
+    btn.textContent   = 'Ajouter';
   }
   modal.classList.add('open');
 }

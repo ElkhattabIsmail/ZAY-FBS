@@ -124,9 +124,10 @@ nav {
 /* ── HERO ── */
 .hero {
   position: relative;
-  height: 380px;
+  height: 480px;
   overflow: hidden;
-  background: linear-gradient(135deg, #1a2e1a 0%, #2d5a27 60%, #3d7a35 100%);
+  z-index: 4;
+  background: url(heroBg.jpg) no-repeat center center / cover;
   display: flex;
   align-items: center;
   padding: 0 3rem;
@@ -498,7 +499,6 @@ nav {
   border-radius: 10px;
   padding: 1rem 1.25rem;
   display: flex;
-  
   gap: 1rem;
   margin-bottom: 1rem;
   box-shadow: var(--shadow);
