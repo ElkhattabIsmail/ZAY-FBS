@@ -7,11 +7,6 @@ let products = [
     img: "https://images.unsplash.com/photo-1601379327928-bedfaf9da2d0?w=400&q=80" },
 ];
 
-
-
-
-
-
 // ── NAVIGATION ──
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); // disactivate all pages
@@ -24,8 +19,6 @@ function showPage(name) {
 
   if (name === 'produits') renderProducts();
 }
-
-
 const DEFAULT_IMG = "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&q=80";
 
 // ── PRODUCTS List ──
@@ -110,8 +103,6 @@ function Faire_Annuler_Command(msg){
     showToast(msg);
 }
 
-
-
 function toggleCart() {
   document.getElementById('cartSidebar').classList.toggle('open');
   document.getElementById('cartOverlay').classList.toggle('open');
@@ -143,9 +134,6 @@ function addToCart(id) {
 function toggleMenu() {
   document.getElementById('navLinks').classList.toggle('open');
 }
-
-
-
 
 // Modal
 
@@ -179,15 +167,12 @@ function closeModal() {
   editingId = null;
 }
 
-
-
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
-
 
 let cart = [];
 let editingId = null;
